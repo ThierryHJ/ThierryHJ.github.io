@@ -5,6 +5,15 @@ baseurl: ""
 url: "https://ThierryHJ.github.io"
 logo: "/assets/images/profile.jpg"
 
+# Author settings
+author:
+  name: ThierryHJ
+  bio: "Learning enthusiast focused on expanding knowledge in various domains."
+  email: contact@example.com # Replace with your email
+  github: ThierryHJ
+  twitter: # your twitter username
+  linkedin: # your linkedin username
+
 # Build settings
 markdown: kramdown
 permalink: /:title/
@@ -35,12 +44,6 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-seo-tag
-
-# Social links
-social_links:
-  github: ThierryHJ
-  twitter: # your twitter username
-  linkedin: # your linkedin username
 
 # Category settings
 category_archive:

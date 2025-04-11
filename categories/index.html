@@ -1,0 +1,32 @@
+---
+layout: default
+title: Categories
+---
+
+<div class="categories-page">
+    <h1>Categories</h1>
+    
+    <div class="category-cloud">
+        {% for category in site.categories %}
+        <a href="#{{ category[0] | slugify }}" class="tag" style="font-size: {{ category[1].size | times: 4 | plus: 80 }}%">
+            {{ category[0] }} <span class="tag-count">({{ category[1].size }})</span>
+        </a>
+        {% endfor %}
+    </div>
+    
+    <div class="category-list">
+        {% for category in site.categories %}
+        <div class="category-section" id="{{ category[0] | slugify }}">
+            <h2 class="category-title">{{ category[0] }}</h2>
+            <ul class="category-posts">
+                {% for post in category[1] %}
+                <li>
+                    <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
