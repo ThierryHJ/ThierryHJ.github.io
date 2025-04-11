@@ -1,0 +1,53 @@
+# Site settings
+title: ZeroDayMindset
+description: "Because knowledge is the ultimate exploit. Document, learn, evolve."
+baseurl: ""
+url: "https://ThierryHJ.github.io"
+logo: "/assets/images/profile.jpg"
+
+# Build settings
+markdown: kramdown
+permalink: /:title/
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Social links
+social_links:
+  github: ThierryHJ
+  twitter: # your twitter username
+  linkedin: # your linkedin username
+
+# Category settings
+category_archive:
+  type: liquid
+  path: /categories/
+
+# Tag settings
+tag_archive:
+  type: liquid
+  path: /tags/
