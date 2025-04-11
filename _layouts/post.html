@@ -7,29 +7,81 @@ layout: default
     </header>
     
     <div class="post-meta">
-        <span class="post-date">
-            <i class="fa fa-calendar"></i> {{ page.date | date: "%b %-d, %Y" }}
-        </span>
-        {% if page.categories %}
-        <span class="post-categories">
-            <i class="fa fa-folder"></i> 
-            {% for category in page.categories %}
-            <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
-            {% endfor %}
-        </span>
-        {% endif %}
-        
-        {% if page.tags %}
-        <span class="post-tags">
-            <i class="fa fa-tags"></i> 
-            {% for tag in page.tags %}
-            <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-            {% endfor %}
-        </span>
-        {% endif %}
+        <span class="post-date">Posted {{ page.date | date: "%b %-d, %Y" }} • Updated {{ page.date | date: "%b %-d, %Y" }}</span>
+        <span>By {{ site.author | default: site.title }}</span>
+        <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
     </div>
 
     <div class="post-content">
         {{ content }}
     </div>
+    
+    {% if page.categories or page.tags %}
+    <div class="post-taxonomy">
+        {% if page.categories %}
+        <div class="post-categories">
+            <h4>Categories:</h4>
+            <div class="taxonomy-items">
+                {% for category in page.categories %}
+                <a href="{{ '/categories/' | relative_url }}#{{ category | slugify }}" class="taxonomy-item">{{ category }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if page.tags %}
+        <div class="post-tags">
+            <h4>Tags:</h4>
+            <div class="taxonomy-items">
+                {% for tag in page.tags %}
+                <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="taxonomy-item">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
 </article>
+
+<style>
+.post-meta {
+    margin-bottom: 25px;
+    color: #6c757d;
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.post-taxonomy {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.post-categories, .post-tags {
+    margin-bottom: 20px;
+}
+
+.taxonomy-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.taxonomy-item {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #495057;
+    transition: all 0.3s;
+}
+
+.taxonomy-item:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+</style>
