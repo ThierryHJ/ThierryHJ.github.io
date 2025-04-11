@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            {% include sidebar.html %}
+        </div>
+        <div class="main-content">
+            {% include header.html %}
+            
+            <div class="content">
+                {{ content }}
+            </div>
+
+            {% include footer.html %}
+        </div>
+        <div class="right-sidebar">
+            <div class="recently-updated">
+                <h3>Recently Updated</h3>
+                <ul>
+                    {% for post in site.posts limit:5 %}
+                    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="trending-tags">
+                <h3>Trending Tags</h3>
+                <div class="tags-cloud">
+                    {% for tag in site.tags limit:10 %}
+                    <a href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}" class="tag">{{ tag[0] }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
