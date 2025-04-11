@@ -46,12 +46,6 @@
                     {% if site.author.github %}
                     <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                     {% endif %}
-                    {% if site.author.twitter %}
-                    <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-                    {% endif %}
-                    {% if site.author.linkedin %}
-                    <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                    {% endif %}
                     <a href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener"><i class="fas fa-rss"></i></a>
                     {% if site.author.email %}
                     <a href="mailto:{{ site.author.email }}" target="_blank" rel="noopener"><i class="fas fa-envelope"></i></a>
@@ -62,34 +56,17 @@
 
         <!-- Main Content -->
         <div class="main-content">
-            <header class="site-header">
-                <div class="header-content">
-                    <div class="site-title-header">
-                        <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-                    </div>
-                    <div class="site-search">
-                        <form action="/search/" method="get">
-                            <input type="text" name="q" placeholder="Search..." aria-label="Search">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </header>
+            <!-- Search box in top right corner like target site -->
+            <div class="site-search">
+                <form action="/search/" method="get">
+                    <input type="text" name="q" placeholder="Search..." aria-label="Search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
             
             <main class="content">
                 {{ content }}
             </main>
-
-            <footer class="site-footer">
-                <div class="footer-content">
-                    <div class="copyright">
-                        &copy; {{ site.time | date: '%Y' }} {{ site.title }}
-                    </div>
-                    <div class="powered-by">
-                        Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 
