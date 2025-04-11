@@ -2,13 +2,13 @@
 :root {
     --primary-color: #333;
     --secondary-color: #666;
-    --accent-color: #4a4a4a;
+    --accent-color: #3a86ff;
     --background-color: #fff;
-    --sidebar-bg: #f8f9fa;
+    --sidebar-bg: #f5f5f7;
     --header-bg: #ffffff;
     --border-color: #e0e0e0;
-    --link-color: #0d6efd;
-    --hover-color: #0a58ca;
+    --link-color: #3a86ff;
+    --hover-color: #2563eb;
     --tag-bg: #f1f1f1;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -43,6 +43,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
 }
 
+h1.site-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
 ul {
     list-style-type: none;
 }
@@ -57,12 +62,14 @@ ul {
 .main-content {
     padding: 0;
     background-color: white;
-    border-left: 1px solid var(--border-color);
     position: relative;
+    border-left: 1px solid #eaeaea;
 }
 
 .content {
-    padding: 0 20px 20px;
+    padding: 0 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Sidebar */
@@ -73,37 +80,33 @@ ul {
     top: 0;
     height: 100vh;
     overflow-y: auto;
+    border-right: 1px solid #eaeaea;
 }
 
 .sidebar-content {
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 20px 0;
 }
 
 .profile {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 20px;
 }
 
 .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     margin-bottom: 15px;
     object-fit: cover;
 }
 
-.site-title {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
 .site-description {
     font-size: 0.85rem;
     color: var(--secondary-color);
-    font-style: italic;
     line-height: 1.4;
 }
 
@@ -112,17 +115,16 @@ ul {
 }
 
 .site-nav li {
-    margin-bottom: 0;
+    margin-bottom: 2px;
 }
 
 .site-nav a {
     display: flex;
     align-items: center;
-    padding: 12px 20px;
+    padding: 10px 20px;
     color: var(--primary-color);
     font-weight: 500;
     transition: background-color 0.3s;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .site-nav a i {
@@ -140,24 +142,22 @@ ul {
     justify-content: center;
     margin-top: auto;
     padding: 20px;
+    gap: 15px;
 }
 
 .social-links a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    margin: 0 5px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background-color: rgba(0,0,0,0.05);
     color: var(--secondary-color);
     transition: all 0.3s;
 }
 
 .social-links a:hover {
-    background-color: var(--link-color);
-    color: white;
+    color: var(--link-color);
 }
 
 /* Header */
@@ -172,6 +172,14 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-title h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #3a86ff;
 }
 
 .site-search {
@@ -202,11 +210,11 @@ ul {
 .page-sidebar {
     padding: 20px;
     border-top: 1px solid var(--border-color);
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .recently-updated, .trending-tags {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .recently-updated h3, .trending-tags h3 {
@@ -214,10 +222,20 @@ ul {
     margin-bottom: 15px;
     padding-bottom: 5px;
     border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
 }
 
 .recently-updated ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.recently-updated ul li a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.recently-updated ul li a:hover {
+    color: var(--link-color);
 }
 
 .tags-cloud {
@@ -237,7 +255,8 @@ ul {
 }
 
 .tag:hover {
-    background-color: rgba(0, 123, 255, 0.1);
+    background-color: var(--link-color);
+    color: white;
 }
 
 /* Posts */
@@ -252,7 +271,16 @@ ul {
 }
 
 .post-title {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.post-title a {
+    color: var(--primary-color);
+}
+
+.post-title a:hover {
+    color: var(--link-color);
 }
 
 .post-meta {
@@ -274,14 +302,16 @@ ul {
 }
 
 .post-excerpt {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: var(--secondary-color);
+    line-height: 1.7;
 }
 
 .post-read-more a {
     display: inline-flex;
     align-items: center;
     font-weight: 500;
+    color: var(--link-color);
 }
 
 .post-read-more i {
@@ -299,7 +329,7 @@ ul {
 }
 
 .post-header {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .post-content {
@@ -322,21 +352,6 @@ ul {
 
 .post-content ul {
     list-style-type: disc;
-}
-
-/* Footer */
-.site-footer {
-    margin-top: 40px;
-    padding: 20px;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.9rem;
-    color: var(--secondary-color);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 /* Home page */
