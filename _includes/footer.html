@@ -1,10 +1,12 @@
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="copyright">
-            &copy; {{ site.time | date: '%Y' }} {{ site.title }}
-        </div>
-        <div class="powered-by">
-            Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> &amp; <a href="https://github.com/pages" target="_blank">GitHub Pages</a>
-        </div>
-    </div>
-</footer>
+<div class="search-box">
+    <form action="/search" method="GET">
+      <input
+        type="text"
+        name="q"
+        placeholder="Search..."
+        aria-label="Search"
+      >
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  
